@@ -1,0 +1,22 @@
+name: Send Telegram Notification
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    
+jobs:
+  build:
+    name: Send Message in Telegram
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send Message in Telegram
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.MESSAGEID }}
+        token: ${{ secrets.BOTTOKEN }}
+        message: |
+          Project: DataAnalysis-NSWTrafficPenalty
+          Commit Message: ${{ github.event.head_commit.message }}
+          Commited Actor: ${{ github.actor }}

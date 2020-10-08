@@ -10,20 +10,23 @@ class Dataset:
     def __init__(self,filepath):
         self.df = pd.read_csv(filepath,low_memory=False)
         self.df['OFFENCE_MONTH'] = pd.to_datetime(self.df['OFFENCE_MONTH'])
-
+        pd.set_option('display.max_rows',999999)
     def getModel(self,dataframe):
         model = pandasModel(dataframe)
         return model
 
     # Returns Model of AN Entire CSV
     def getAllData(self):
-        return pandasModel(self.ds)
+        return self.df
 
     # Return the Dataframe of records in specified Time Period
-    def dateFilter(self,start_date,end_date):
+    def dateFilter(self,start_date,end_date,df):
         mask = (self.df['OFFENCE_MONTH'] >= start_date) & (self.df['OFFENCE_MONTH'] < end_date)
-        df = self.df.loc[mask]
-        return self.getModel(df)
+        df = df.loc[mask]
+        return df
+
+    def filterBy(self,criteria,df):
+        return df[df['OFFENCE_DESC'].str.contains('|'.join(criteria))]
 
 
 class pandasModel(QAbstractTableModel):

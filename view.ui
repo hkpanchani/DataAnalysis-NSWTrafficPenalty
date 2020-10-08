@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>764</width>
+    <width>777</width>
     <height>585</height>
    </rect>
   </property>
@@ -55,7 +55,11 @@
          </widget>
         </item>
         <item alignment="Qt::AlignHCenter">
-         <widget class="QDateEdit" name="startDateEdit"/>
+         <widget class="QDateEdit" name="startDateEdit">
+          <property name="displayFormat">
+           <string>d/M/yyyy</string>
+          </property>
+         </widget>
         </item>
         <item alignment="Qt::AlignHCenter">
          <widget class="QLabel" name="label_2">
@@ -68,7 +72,18 @@
          </widget>
         </item>
         <item alignment="Qt::AlignHCenter">
-         <widget class="QDateEdit" name="endDateEdit"/>
+         <widget class="QDateEdit" name="endDateEdit">
+          <property name="displayFormat">
+           <string>d/M/yyyy</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="allRecordsCB">
+          <property name="text">
+           <string>All Records?</string>
+          </property>
+         </widget>
         </item>
         <item>
          <spacer name="horizontalSpacer_2">
@@ -86,7 +101,58 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <item>
+         <spacer name="horizontalSpacer_9">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Operation:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="filterRecord">
+          <property name="text">
+           <string>Filter Records</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="plotGraph">
+          <property name="text">
+           <string>Plot a Graph</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_10">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="filterByHL">
         <item>
          <spacer name="horizontalSpacer_3">
           <property name="orientation">
@@ -126,7 +192,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <layout class="QHBoxLayout" name="analysisOverHL">
         <item>
          <spacer name="horizontalSpacer_5">
           <property name="orientation">
@@ -228,7 +294,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>764</width>
+     <width>777</width>
      <height>21</height>
     </rect>
    </property>
